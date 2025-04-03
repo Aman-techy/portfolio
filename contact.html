@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <style>
+    /* Your custom styles */
     .contact-wrapper {
       background: white;
       border-radius: 20px;
@@ -100,99 +103,131 @@
 </head>
 <body class="bg-light">
 
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="contact-wrapper">
-            <div class="row g-0">
-              <div class="col-md-5">
-                <div class="contact-info h-100">
-                  <h3 class="mb-4">Get in touch</h3>
-                  <p class="mb-4">We'd love to hear from you. Please fill out the form or contact us using the information below.</p>
-  
-                  <div class="contact-item">
-                    <div class="contact-icon">
-                      <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Address</h6>
-                      <p class="mb-0">Online-based /Freelance Profile </p>
-                    </div>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="contact-wrapper">
+          <div class="row g-0">
+            <!-- Contact Info Section -->
+            <div class="col-md-5">
+              <div class="contact-info h-100">
+                <h3 class="mb-4">Get in touch</h3>
+                <p class="mb-4">We'd love to hear from you. Please fill out the form or contact us using the information below.</p>
+
+                <!-- Address, Phone, Email -->
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
                   </div>
-  
-                  <div class="contact-item">
-                    <div class="contact-icon">
-                      <i class="fas fa-phone"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Phone</h6>
-                      <p class="mb-0">+91  9266085053</p>
-                    </div>
+                  <div>
+                    <h6 class="mb-0">Address</h6>
+                    <p class="mb-0">Online-based / Freelance Profile</p>
                   </div>
-  
-                  <div class="contact-item">
-                    <div class="contact-icon">
-                      <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-0">Email</h6>
-                      <p class="mb-0">aman.connect06@gmail.com</p> 
-                    </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
                   </div>
-                  <form action="https://api.web3forms.com/submit" method="POST">
-                  <div class="social-links">
-                    <h6 class="mb-3">Follow Us</h6>
-                    <!-- <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a> -->
-                    <a href="https://www.linkedin.com/in/amandubeycn/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/_faveeditz" class="social-icon"><i class="fab fa-instagram"></i></a>
+                  <div>
+                    <h6 class="mb-0">Phone</h6>
+                    <p class="mb-0">+91 9266085053</p>
                   </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-0">Email</h6>
+                    <p class="mb-0">aman.connect06@gmail.com</p>
+                  </div>
+                </div>
+
+                <div class="social-links">
+                  <h6 class="mb-3">Follow Us</h6>
+                  <a href="https://www.linkedin.com/in/amandubeycn/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://www.instagram.com/_faveeditz" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
               </div>
-              
+            </div>
 
-              
-              <input type="hidden" name="access_key" value="7b676ef4-41f9-422f-909f-6c2dcc74048c">
-              <div class="col-md-7">
-                <div class="contact-form">
-                  <h3 class="mb-4">Send us a message</h3>
-                  <form>
-                    <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <label class="form-label">First Name</label>
-                        <input type="text" class="form-control" placeholder="Aman">
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <label class="form-label">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Dubey">
-                      </div>
+            <!-- Contact Form Section -->
+            <div class="col-md-7">
+              <div class="contact-form">
+                <h3 class="mb-4">Send us a message</h3>
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+                  <!-- Input Fields -->
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">First Name</label>
+                      <input type="text" name="first_name" class="form-control" placeholder="Aman" required>
                     </div>
-                    
-                    <div class="mb-3">
-                      <label class="form-label">Email</label>
-                      <input type="email" class="form-control" placeholder="Aman@example.com">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Last Name</label>
+                      <input type="text" name="last_name" class="form-control" placeholder="Dubey" required>
                     </div>
-                    
-                    <div class="mb-3">
-                      <label class="form-label">Subject</label>
-                      <input type="text" class="form-control" placeholder="How can we help?">
-                    </div>
-                    
-                    <div class="mb-4">
-                      <label class="form-label">Message</label>
-                      <textarea class="form-control" rows="5" placeholder="Your message here..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-submit text-white">Send Message</button>  
-                  </form>
-                </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Aman@example.com" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Subject</label>
+                    <input type="text" name="subject" class="form-control" placeholder="How can we help?" required>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" class="form-control" rows="5" placeholder="Your message here..." required></textarea>
+                  </div>
+
+                  <!-- Hidden Access Key -->
+                  <input type="hidden" name="access_key" value="ecb1a4b7-429a-477d-ab8e-37c171dd88a5">
+
+                  <!-- Submit Button -->
+                  <button type="submit" class="btn btn-submit text-white">Send Message</button>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-  </form>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Create a FormData object from the form
+      const form = document.getElementById("contact-form");
+      const formData = new FormData(form);
+
+      // Use fetch to submit the form via Web3Forms API
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        // If submission is successful, redirect to the thank you page
+        if (data.success) {
+          window.location.href = "thankyou.html"; // Redirect to thankyou page
+        } else {
+          alert("There was an error with your submission. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("There was an error with your submission. Please try again.");
+      });
+    }
+  </script>
 </body>
 </html>
